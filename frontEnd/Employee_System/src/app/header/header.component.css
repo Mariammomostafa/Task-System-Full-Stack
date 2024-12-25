@@ -1,0 +1,37 @@
+.me-auto {
+  margin-right: 125px !important;
+}
+.control
+{
+  position: absolute;
+  right: 5px;
+ }
+
+.control button,
+.d-flex button
+{
+  margin-left: 4px;
+  color: white;
+  font-size: 15px;
+  border: none;
+}
+.d-flex button
+{
+  margin-left: 10px;
+}
+
+
+.header
+{
+
+  
+  position: sticky; /* fixed the header */
+  top: 0;
+  background-color:  black;
+  height: 50px;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2.3px;
+  z-index: 1; /* make the content of page under the header*/
+}
+

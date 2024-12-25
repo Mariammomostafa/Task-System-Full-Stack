@@ -1,0 +1,55 @@
+
+<div style="margin-left: 90px; text-align: center;margin-top: 50px;">
+  <h2 >Tasks List </h2>
+  
+</div>
+
+<div class="container" style="margin-top: 50px; margin-left:90px">
+  <div class="row">
+
+       <div class="card col-sm-3" style="width: 16rem;" *ngFor="let task of listOfTasks">
+           <div class="card-body ">
+               <h6 class="card-title" >
+                 <b style="color: brown; font-size: 15px;">Title : </b>
+                     {{task.title}}
+               </h6>
+               <span class="card-subtitle mb-2 text-muted " >
+                 <b style="color: brown;font-size: 15px;">Description : </b>
+                 {{task.description}}
+               </span>
+               <hr>
+               <div style="font-size: 13px;">
+                   <div class="task-info">
+                       <span class="info-row" style="color: brown;"><b>Date : </b> </span>
+                       <span class="info-value">{{task.date| date:'short'}}</span>
+                   </div>
+               
+                   <div class="task-info">
+                       <span class="info-row" style="color: brown;"><b>Status : </b> </span>
+                       <span class="info-value">{{task.status}}</span>
+                   </div>
+
+                   <div class="task-info">
+                     <span class="info-row" style="color: brown;" ><b>Priority : </b> </span>
+                     <span class="info-value">{{task.priority}}</span>
+                 </div>
+           
+                   <div class="task-info">
+                       <span class="info-row" style="color: brown;" ><b>Employee Name : </b> </span>
+                       <span class="info-value">{{task.empName}}</span>
+                   </div>
+               </div><hr>
+           
+               <div style="margin-left:30px;">
+                <button routerLink="/employee/taskDetails/{{task.id}}" class="btn btn-sm btn-success" >View</button>
+                <button  type="submit" class="btn btn-sm btn-primary" style="margin-left:25px;" routerLink="/employee/update-task/{{task.id}}" >Update</button>
+ 
+               </div>
+               
+                                 
+           </div>
+       </div>
+   </div>
+
+</div>
+

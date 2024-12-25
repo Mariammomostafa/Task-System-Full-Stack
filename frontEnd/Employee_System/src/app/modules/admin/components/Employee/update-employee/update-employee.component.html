@@ -1,0 +1,41 @@
+<br>
+<h3 class="text-center">Update Employee</h3>
+<div class="col-md-6 offset-md-3">
+  <nz-content>
+  
+    <div class="inner-content">
+      
+      <form   [formGroup]="updateForm">
+        <div class="mb-3">
+          <label  class="form-label">First Name</label>
+          <input type="text" name="firstName" class="form-control" formControlName="firstName" aria-describedby="emailHelp">
+        </div>
+    
+        <div class="mb-3">
+          <label  class="form-label">Last Name</label>
+          <input type="text" name="lastName" class="form-control" formControlName="lastName"  aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label  class="form-label">Email</label>
+          <input type="text" name="email"  formControlName="email"  class="form-control" >
+        </div>
+        <div class="mb-2">
+            <label  class="form-label">Password</label>
+            <input type="text" name="password"  formControlName="password"  class="form-control" >
+          </div>
+    <div style="padding-top: 15px;">
+      <button type="submit" (click)="update()" class="btn btn-primary">Submit</button>
+
+    </div>
+      </form>
+    
+    
+    </div>
+  </nz-content>
+  
+
+</div>
+
+
+
+

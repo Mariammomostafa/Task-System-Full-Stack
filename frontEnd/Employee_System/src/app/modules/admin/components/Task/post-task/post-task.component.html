@@ -1,0 +1,51 @@
+<br>
+<h1 class="text-center">Update Employee</h1>
+<div class="col-md-6 offset-md-3">
+
+  <form   [formGroup]="taskForm">
+    <div class="mb-3">
+      <label  class="form-label">Title :</label>
+      <input type="text" name="title" class="form-control" formControlName="title" aria-describedby="emailHelp">
+      <p class="color" *ngIf="taskForm.get('title')?.hasError('required') && taskForm.get('title')?.touched" > Title is required </p>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description :</label>
+      <input type="text" name="description" class="form-control" formControlName="description"  aria-describedby="emailHelp">
+      <p class="color" *ngIf="taskForm.get('description')?.hasError('required') && taskForm.get('description')?.touched" > description is required </p>
+    </div>
+    
+    <div class="mb-3">
+      <label for="date"  class="form-label">Date :</label>
+      <input type="text" name="date"  formControlName="date"  class="form-control" >
+      <p class="color" *ngIf="taskForm.get('date')?.hasError('required') && taskForm.get('date')?.touched" > date is required </p>
+    </div>
+    
+    <div class="mb-3">
+        <label  for="priority" class="form-label">Priority :</label>
+        <select  name="priority"  formControlName="priority"  id="priority" >
+            <option *ngFor="let priority of listOfPriority" [value]="priority">
+              {{priority}}
+            </option>    
+        </select>
+        <p class="color" *ngIf="taskForm.get('priority')?.hasError('required') && taskForm.get('priority')?.touched" > priority is required </p>
+    </div>
+
+    <div class="mb-3">
+        <label for="empId">Select An Employee :</label><br>     
+           <select  formControlName="empId" name="empId" id="empId">
+            <option *ngFor="let emp of listOfEmps" [value]="emp.id">
+                {{emp.firstName}}
+            </option>
+        </select>
+        <p class="color" *ngIf="taskForm.get('empId')?.hasError('required') && taskForm.get('empId')?.touched" > priority is required </p>
+    </div>
+
+
+    <button type="submit" (click)="submit()" class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+
+
+

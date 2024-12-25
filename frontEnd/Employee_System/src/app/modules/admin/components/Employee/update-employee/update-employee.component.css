@@ -1,0 +1,14 @@
+.text-center
+{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.inner-content {
+    background: #e7e6e6;
+    padding: 24px;
+    min-height: 300px;
+    width:500px;
+    
+  }

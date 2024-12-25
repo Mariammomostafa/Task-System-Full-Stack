@@ -1,0 +1,51 @@
+<br>
+<h1 class="text-center">Update Task</h1>
+<div class="col-md-6 offset-md-3">
+
+  <form   [formGroup]="updateTaskForm">
+    <div class="mb-3">
+      <label  class="form-label">Title :</label>
+      <input type="text" name="title" class="form-control" formControlName="title" aria-describedby="emailHelp">
+      <p class="color" *ngIf="updateTaskForm.get('title')?.hasError('required') && updateTaskForm.get('title')?.touched" > Title is required </p>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description :</label>
+      <input type="text" name="description" class="form-control" formControlName="description"  aria-describedby="emailHelp">
+      <p class="color" *ngIf="updateTaskForm.get('description')?.hasError('required') && updateTaskForm.get('description')?.touched" > description is required </p>
+    </div>
+    
+    <div class="mb-3">
+      <label for="date"  class="form-label">Date :</label>
+      <input type="text" name="date"  formControlName="date"  class="form-control" >
+      <p class="color" *ngIf="updateTaskForm.get('date')?.hasError('required') && updateTaskForm.get('date')?.touched" > date is required </p>
+    </div>
+    
+    <div class="mb-3">
+        <label  for="priority" class="form-label">Priority :</label>
+        <select  name="priority"  formControlName="priority"  id="priority" >
+            <option *ngFor="let priority of listOfPriority" [value]="priority">
+              {{priority}}
+            </option>    
+        </select>
+        <p class="color" *ngIf="updateTaskForm.get('priority')?.hasError('required') && updateTaskForm.get('priority')?.touched" > priority is required </p>
+    </div>
+
+    <div class="mb-3">
+        <label for="empId">Select An Employee :</label><br>     
+           <select  formControlName="empId" name="empId" id="empId">
+            <option *ngFor="let emp of listOfEmps" [value]="emp.id">
+                {{emp.firstName}}
+            </option>
+        </select>
+        <p class="color" *ngIf="updateTaskForm.get('empId')?.hasError('required') && updateTaskForm.get('empId')?.touched" > priority is required </p>
+    </div>
+
+
+    <button type="submit" (click)="update()" class="btn btn-primary">Update</button>
+  </form>
+
+</div>
+
+
+

@@ -1,0 +1,31 @@
+.card
+{
+    width : calc(40% - 20px);
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    border-radius: 10px;
+    position: flex;
+  
+}
+
+  .coverTemplate {
+    background-image: url('https://www.citypng.com/public/uploads/preview/hd-man-user-illustration-icon-transparent-png-701751694974843ybexneueic.png');
+    background-size: cover;
+  }
+
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .example-card {
+    width: 16rem;
+    margin-bottom: 20px;
+    margin-left:90px;
+    border-radius: 5px;
+  }
+  .tt
+  {
+    width:50rem;
+  }

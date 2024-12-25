@@ -1,0 +1,80 @@
+
+<br>
+<h1 class="text-center">Update Task</h1>
+<div class="col-md-6 offset-md-3">
+
+  <form   [formGroup]="updateTaskForm">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title :</label>
+      <input type="text" id="title" class="form-control" formControlName="title" aria-describedby="emailHelp">
+      <p class="color" *ngIf="updateTaskForm.get('title')?.hasError('required') && updateTaskForm.get('title')?.touched" > Title is required </p>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description :</label>
+      <input type="text" id="description" class="form-control" formControlName="description"  aria-describedby="emailHelp">
+      <p class="color" *ngIf="updateTaskForm.get('description')?.hasError('required') && updateTaskForm.get('description')?.touched" > description is required </p>
+    </div>
+
+    <div class="mb-3">
+        <label for="empId" class="form-label">Employee Id</label>
+        <input type="text" name="empId" id="empId" class="form-control" formControlName="empId"  aria-describedby="emailHelp">
+        <p class="color" *ngIf="updateTaskForm.get('description')?.hasError('required') && updateTaskForm.get('description')?.touched" > description is required </p>
+      </div>
+    
+    <div class="mb-3">
+      <label for="date"  class="form-label">Date :</label>
+      <input type="text" id="date" name="date" formControlName="date"  class="form-control" >
+      <p class="color" *ngIf="updateTaskForm.get('date')?.hasError('required') && updateTaskForm.get('date')?.touched" > date is required </p>
+    </div>
+   
+    <label For="priority" >Priroity</label><br><br>
+    <nz-form-item>
+      
+      <nz-form-control [nzSpan]="12" nzErrorTip="Please select priority!">
+        <nz-select id="priority" style="width: 500px;" formControlName="priority" nzPlaceHolder="Select a option ">
+          <nz-option nzValue="low" nzLabel="low"></nz-option>
+          <nz-option nzValue="medium" nzLabel="medium"></nz-option>
+          <nz-option nzValue="high" nzLabel="high"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+<!--
+OR (this also work)
+
+ <div class="mb-3">
+        <label  for="priority" class="form-label">Priority :</label>
+        <select   formControlName="priority" value="priority" id="priority"  >
+            <option *ngFor="let p of listOfPriority" [value]="p.name" >
+              {{p.name}}
+            </option>    
+        </select>
+        <p class="color" *ngIf="updateTaskForm.get('priority')?.hasError('required') && updateTaskForm.get('priority')?.touched" > priority is required </p>
+    </div>
+
+
+
+    
+    <p>{{updateTaskForm.get('priority')?.value}}</p>
+
+    -->
+
+    <button type="submit" (click)="update()" class="btn btn-primary">Update</button>
+  </form>
+<!--
+  <nz-form-item>
+    <nz-form-label [nzSpan]="5" nzFor="priority" nzRequired>Priroity</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzErrorTip="Please select priority!">
+  <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person" [(ngModel)]="selectedValue">
+    <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+    <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+    <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+  </nz-select>
+</nz-form-control>
+</nz-form-item>
+<p>{{selectedValue}}</p>
+-->
+  
+
+</div>
+

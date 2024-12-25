@@ -1,0 +1,26 @@
+
+<div style="background: #f7f5f5; padding:30px; width:350px; margin-left: 300px; margin-top:100px">
+
+  
+  <nz-card style="width:300px;" [nzBordered]="false"  [nzCover]="coverTemplate"><br>
+    <div >
+      <label ><b>First Name : </b></label>  {{listOfEmps.firstName}}
+    </div>
+  <br>
+    <div>
+      <label><b>Last Name : </b></label>  {{listOfEmps.lastName}}
+    </div>
+    <br>
+  
+    <div>
+      <label><b>Email : </b></label>  {{listOfEmps.email}}
+    </div>
+  </nz-card>
+
+</div>
+ 
+
+<ng-template #coverTemplate>
+  <img alt="example"  style="padding-left: 25px; width: 200px; height: 200px;" src="assets/info3.jpeg" />
+</ng-template>
+

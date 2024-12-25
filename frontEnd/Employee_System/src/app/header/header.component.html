@@ -1,0 +1,61 @@
+<div *ngIf="!isAdminLogged && !isEmployeeLogged" class="header" >
+  <nav class="navbar navbar-expand-lg  navbar-scroll" >
+    <div class="container-fluid">
+      <a class="navbar-brand"    style="font-size: 18px; margin-left:20px;  color: rgb(255, 255, 255);"> System Management</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+     
+        <div class="control">
+          <button class="btn "  routerLink="/login"routerLinkActive="active" type="submit">LogIn</button>
+  
+          <button class="btn "  routerLink="/signup" routerLinkActive="active" type="submit">SignUp</button>
+  
+       
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div *ngIf="isAdminLogged" class="header">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+    <div class="container-fluid">
+      <a class="navbar-brand"    style="font-size: 18px; margin-left:20px;  color: rgb(255, 255, 255);"> System Management</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               
+        <div class="control">
+          <button class="btn btn-outline-primary"  routerLink="/admin/dashboard" routerLinkActive="active" type="submit">Dashboard</button>
+          
+          <button class="btn btn-outline-primary"  routerLink="/admin/showTasks" routerLinkActive="active" type="submit">Show Tasks</button>
+
+          <button class="btn btn-outline-primary"  routerLink="/admin/task" routerLinkActive="active" type="submit">Create Task</button>
+
+  
+          <button class="btn btn-outline-primary" (click)="logout()" >Log Out</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div *ngIf="isEmployeeLogged" class="header">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-scroll" >
+    <div class="container-fluid">
+      <a class="navbar-brand"    style="font-size: 18px; margin-left:20px;  color: rgb(255, 255, 255);"> System Management</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              
+        <div class="control">
+          <button class="btn btn-outline-success"  routerLink="/employee/empdashboard" routerLinkActive="active" type="submit">Dashboard</button>
+          <button class="btn btn-outline-danger" (click)="logout()" type="submit">Log Out</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+

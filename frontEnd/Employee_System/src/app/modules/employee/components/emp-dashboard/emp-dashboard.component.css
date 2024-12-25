@@ -1,0 +1,19 @@
+.card
+{
+    width : calc(40% - 20px);
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    border-radius: 10px;
+    position: flex;
+  
+}
+
+.btn{
+    margin-left: 5px;
+}
+
+.info-row
+{
+    color: brown;
+}

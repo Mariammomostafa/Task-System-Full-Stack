@@ -1,0 +1,73 @@
+
+    <!--
+        <div class="mb-3 FormGroup">
+          <label for="password" class="form-label">Password</label>
+          <input [type]="showPassword ? 'text' : 'password'" class="form-control" formControlName="password" id="password" name="password" />
+          
+          <div class="password-input-wrapper">
+          <button (click)="ShowPassword()">
+            <i class="glyphicon" [ngClass]="{'glyphicon-eye-open' :!showPassword ,'glyphicon-eye-close':showPassword}" (click)="ShowPassword()"></i>
+          </button><br>
+          </div><br>
+
+            <h5 class="text-danger" >Follow Pattern: any digit from (3-5) times followed by any char from (3-5) times</h5><br>
+          
+        </div>
+
+    -->
+
+
+
+    <div class="bg" style="background-color: #e4e2e2 ;">
+      <div class="parent">
+          <div class="child">
+              <div nz-row >
+                  <h2 style="margin-left: 65px; color : #001529">Log in</h2><br>
+              </div>
+                  <form style=" margin-left: 3px;" [formGroup]="loginForm" >
+                     
+                       <mat-form-field >
+                          <mat-label >Email :</mat-label>
+                          <input class="input" matInput type="email"  formControlName="email" placeholder="Enter Email ..">
+
+                         <mat-hint style="color : red ;" *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched"> email is required</mat-hint>
+                          <mat-hint style="color : red ;" *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched"> Invalid Email</mat-hint>    
+                        </mat-form-field><br>
+                       
+                         
+                        
+                        
+
+                            <mat-form-field >
+                              <mat-label >Password</mat-label>
+                                <input formControlName="password"  matInput [type]="hide() ? 'password' : 'text'" />
+                                <mat-hint style="color : red ;" *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched"> email is required</mat-hint>
+
+                                  <button
+                                      mat-icon-button
+                                      matSuffix
+                                      (click)="clickEvent($event)"
+                                      [attr.aria-label]="'Hide password'"
+                                      [attr.aria-pressed]="hide()">
+
+                                  <mat-icon>{{hide() ? "visibility_off" : "visibility"}}</mat-icon>
+                                 </button>
+                        </mat-form-field><br><br>
+               
+                    
+                        <button type="submit" (click)="login()" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+                        Or <a routerLink="/signup">Register now!</a>
+                </form>
+              
+          </div>
+      </div>
+  
+  </div>
+
+
+
+
+
+   
+   
+

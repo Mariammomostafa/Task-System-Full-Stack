@@ -1,0 +1,18 @@
+
+
+/* @import "bootstrap/dist/css/bootstrap.min.css";
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+@import "~material-icons/iconfont/material-icons.css";
+*/ /*this alternative wau to install bootstrap*/
+
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+.height-1000
+{
+    height: 200px;
+    background-color: #e4e2e2;
+}
+.padd-top
+{
+    padding-top: 50px;
+}
