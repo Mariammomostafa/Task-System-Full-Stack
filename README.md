@@ -15,6 +15,7 @@ It is a secured full stack task management system that allows the admin/manager 
 - Admin can create comments for certain task and get all comments of one task
 - Admin can get all employees , add employee
 - Search employees by firstName or lastName
+- Search Tasks by title or employee name who assigned the task
 
 ### Employee Services
 - Each employee has own dashboard to view all his/her tasks , view each task with it's comments between employee and admin , update 
