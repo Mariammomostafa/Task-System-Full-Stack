@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.employee.Dto.CommentDto;
+import com.employee.Dto.EmployeeDto;
 import com.employee.Dto.TaskDto;
 import com.employee.JwtUtils.JwtUtils;
 import com.employee.enums.TaskStatus;
@@ -58,7 +59,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	                           /******************************/
 
 	@Override
-	public Employee updateEmployee(long id, Employee employee) {
+	public EmployeeDto updateEmployee(long id, EmployeeDto employee) {
 		 Employee emp= employeeRepository.findById(id).get();
 
 
@@ -68,19 +69,22 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 		Employee updatedEmployee= employeeRepository.save(emp);
 		
-		return updatedEmployee;
+		return updatedEmployee.getEmployeeDto();
+	}
+	
+	
+	                 /**********************************/
+	@Override
+	public EmployeeDto getEmpFromToken(String token) {
+		
+		String email=  jwtUtils.getUsernameFromToken(token);
+		Employee employee = employeeRepository.findByEmail(email).get();
+		return employee.getEmployeeDto();
 	}
 	
 	                              /******************************/
 
-	@Override
-	public void deleteEmployee(long id) {
-		  Employee employee = employeeRepository.findById(id).get();
-	        employeeRepository.delete(employee);
-	}
-
-	                               /******************************/
-
+	
 	@Override
 	public UserDetailsService userDetailsService() {
            return new UserDetailsService() {
@@ -129,11 +133,22 @@ public class EmployeeServiceImpl implements EmployeeService {
 			public TaskDto updateTaskStatus(long id, String status) {
 				     Task task=  taskRepository.findById(id).get();
 				     if(task != null) {
-				    	 task.setStatus(mapStringToStatus(status));
+				    	 task.setStatus(mapStringToStatus2(status));
 				    	 return taskRepository.save(task).getTaskDto();
 				     }
 				throw new EntityNotFoundException("Task Not Found ...");
 			}
+			
+			
+			private TaskStatus mapStringToStatus2(String status) {
+				return	switch(status) {
+					
+					case "PENDING" -> TaskStatus.PENDING ;
+					case "INPROGRESS" -> TaskStatus.INPROGRESS;
+					case "COMPELETED" -> TaskStatus.COMPELETED;
+					default -> 	 TaskStatus.CANCELED;	
+					};
+				}
 			
 			/*******************************************/
 			
@@ -199,6 +214,15 @@ public class EmployeeServiceImpl implements EmployeeService {
 				return	commentRepository.findAllByTaskId(taskId).stream()
 						.map(Comment::getCommentDto)
 						.collect(Collectors.toList());
+			}
+			
+			
+			/***********************/
+			
+			@Override
+			public void deleteComment(long id) {
+				commentRepository.deleteById(id);
+				
 			}
 
 			

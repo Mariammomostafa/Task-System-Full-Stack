@@ -138,7 +138,11 @@ public class AdminController {
 			
 		}
 
-
+		@DeleteMapping("/task/comment/{id}")
+		public ResponseEntity<?> deleteComment(@PathVariable long id){
+			adminService.deleteComment(id);
+		return	ResponseEntity.ok(null);
+		}
 
 	
 }

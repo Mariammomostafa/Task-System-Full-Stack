@@ -1,0 +1,887 @@
+{
+	"info": {
+		"_postman_id": "14dd4ee9-216d-4593-ad1d-a711e356a9d8",
+		"name": "Task Management Full Stack",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38309234",
+		"_collection_link": "https://cc2222-9166.postman.co/workspace/cc-Workspace~5af00c5d-0de4-460c-8135-3362adf2de31/collection/38309234-14dd4ee9-216d-4593-ad1d-a711e356a9d8?action=share&source=collection_link&creator=38309234"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Comments",
+					"item": [
+						{
+							"name": "create comment",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCR3dGFpdXhyeUt5aVE4R2tQTlNUUHB1Y3VGbENXU05nQTlpTmVNaTFhbGlkQURLc3BMdlRRYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwidXNlcm5hbWUiOiJtYXJpYW1AZ21haWwuY29tIiwic3ViIjoibWFyaWFtQGdtYWlsLmNvbSIsImlhdCI6MTczNTU3Mzg5MywiZXhwIjoxNzM2MTc4NjkzfQ.ez08oD8AljMJ1LxKKN7JwfxA6NnqhLeA45AojwRsuvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"empId\":\"23\",\r\n    \"empName\":\"somaa\",\r\n    \"createdAt\":\"19/05/2024\"\r\n}\r\n    ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/admin/task/comment/2?content=Don't forget add missing row in student table?",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"task",
+										"comment",
+										"2"
+									],
+									"query": [
+										{
+											"key": "content",
+											"value": "Don't forget add missing row in student table?"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get All comments of one task",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCR3dGFpdXhyeUt5aVE4R2tQTlNUUHB1Y3VGbENXU05nQTlpTmVNaTFhbGlkQURLc3BMdlRRYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwidXNlcm5hbWUiOiJtYXJpYW1AZ21haWwuY29tIiwic3ViIjoibWFyaWFtQGdtYWlsLmNvbSIsImlhdCI6MTczNTU3Mzg5MywiZXhwIjoxNzM2MTc4NjkzfQ.ez08oD8AljMJ1LxKKN7JwfxA6NnqhLeA45AojwRsuvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/admin/comments/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"comments",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete comment",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCR3dGFpdXhyeUt5aVE4R2tQTlNUUHB1Y3VGbENXU05nQTlpTmVNaTFhbGlkQURLc3BMdlRRYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwidXNlcm5hbWUiOiJtYXJpYW1AZ21haWwuY29tIiwic3ViIjoibWFyaWFtQGdtYWlsLmNvbSIsImlhdCI6MTczNTU3Mzg5MywiZXhwIjoxNzM2MTc4NjkzfQ.ez08oD8AljMJ1LxKKN7JwfxA6NnqhLeA45AojwRsuvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/admin/task/comment/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"task",
+										"comment",
+										"5"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Task",
+					"item": [
+						{
+							"name": "create Task",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCR3dGFpdXhyeUt5aVE4R2tQTlNUUHB1Y3VGbENXU05nQTlpTmVNaTFhbGlkQURLc3BMdlRRYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwidXNlcm5hbWUiOiJtYXJpYW1AZ21haWwuY29tIiwic3ViIjoibWFyaWFtQGdtYWlsLmNvbSIsImlhdCI6MTczNTU3Mzg5MywiZXhwIjoxNzM2MTc4NjkzfQ.ez08oD8AljMJ1LxKKN7JwfxA6NnqhLeA45AojwRsuvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\" :\"fhfghfghgfhng\",\r\n    \"description\":\"hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\",\r\n    \"pirority\":\"HIGH\",\r\n    \"date\":\"2023-12-25\",\r\n    \"empId\":\"22\"\r\n }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/admin/task",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"task"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all tasks",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCR3dGFpdXhyeUt5aVE4R2tQTlNUUHB1Y3VGbENXU05nQTlpTmVNaTFhbGlkQURLc3BMdlRRYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwidXNlcm5hbWUiOiJtYXJpYW1AZ21haWwuY29tIiwic3ViIjoibWFyaWFtQGdtYWlsLmNvbSIsImlhdCI6MTczNTU3Mzg5MywiZXhwIjoxNzM2MTc4NjkzfQ.ez08oD8AljMJ1LxKKN7JwfxA6NnqhLeA45AojwRsuvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/admin/tasks",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update task",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCR3dGFpdXhyeUt5aVE4R2tQTlNUUHB1Y3VGbENXU05nQTlpTmVNaTFhbGlkQURLc3BMdlRRYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwidXNlcm5hbWUiOiJtYXJpYW1AZ21haWwuY29tIiwic3ViIjoibWFyaWFtQGdtYWlsLmNvbSIsImlhdCI6MTczNTU3Mzg5MywiZXhwIjoxNzM2MTc4NjkzfQ.ez08oD8AljMJ1LxKKN7JwfxA6NnqhLeA45AojwRsuvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n        \r\n        \"title\": \"delete table\",\r\n        \"description\": \"delete student table and create new one\",\r\n        \"priority\": \"HIGH\",\r\n        \"date\": \"2023-12-25T00:00:00.000+00:00\",\r\n        \"status\": \"INPROGRESS\",\r\n        \"empId\": 22,\r\n        \"empName\": \"gehan\"\r\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/admin/task/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"task",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get task by id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCR3dGFpdXhyeUt5aVE4R2tQTlNUUHB1Y3VGbENXU05nQTlpTmVNaTFhbGlkQURLc3BMdlRRYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwidXNlcm5hbWUiOiJtYXJpYW1AZ21haWwuY29tIiwic3ViIjoibWFyaWFtQGdtYWlsLmNvbSIsImlhdCI6MTczNTU3Mzg5MywiZXhwIjoxNzM2MTc4NjkzfQ.ez08oD8AljMJ1LxKKN7JwfxA6NnqhLeA45AojwRsuvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/admin/task/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"task",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete task",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCR3dGFpdXhyeUt5aVE4R2tQTlNUUHB1Y3VGbENXU05nQTlpTmVNaTFhbGlkQURLc3BMdlRRYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwidXNlcm5hbWUiOiJtYXJpYW1AZ21haWwuY29tIiwic3ViIjoibWFyaWFtQGdtYWlsLmNvbSIsImlhdCI6MTczNTU3Mzg5MywiZXhwIjoxNzM2MTc4NjkzfQ.ez08oD8AljMJ1LxKKN7JwfxA6NnqhLeA45AojwRsuvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/admin/task/12",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"task",
+										"12"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Employee",
+					"item": [
+						{
+							"name": "get All Employees",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCR3dGFpdXhyeUt5aVE4R2tQTlNUUHB1Y3VGbENXU05nQTlpTmVNaTFhbGlkQURLc3BMdlRRYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwidXNlcm5hbWUiOiJtYXJpYW1AZ21haWwuY29tIiwic3ViIjoibWFyaWFtQGdtYWlsLmNvbSIsImlhdCI6MTczNTU3Mzg5MywiZXhwIjoxNzM2MTc4NjkzfQ.ez08oD8AljMJ1LxKKN7JwfxA6NnqhLeA45AojwRsuvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/admin/employees",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"employees"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get user from token",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCR3dGFpdXhyeUt5aVE4R2tQTlNUUHB1Y3VGbENXU05nQTlpTmVNaTFhbGlkQURLc3BMdlRRYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwidXNlcm5hbWUiOiJtYXJpYW1AZ21haWwuY29tIiwic3ViIjoibWFyaWFtQGdtYWlsLmNvbSIsImlhdCI6MTczNTU3Mzg5MywiZXhwIjoxNzM2MTc4NjkzfQ.ez08oD8AljMJ1LxKKN7JwfxA6NnqhLeA45AojwRsuvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/admin/employees/getEmployee",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"employees",
+										"getEmployee"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update Employee",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCQvbjlWeDQvclR5bWdJVFVRMC5Dbk1lbzFmV0dzVmVDODJOU1pQbFpyRlR1YTVLWE5tSmN6RyIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJFTVBMT1lFRSJ9XSwidXNlcm5hbWUiOiJzb21hYTEyM0BnbWFpbC5jb20iLCJzdWIiOiJzb21hYTEyM0BnbWFpbC5jb20iLCJpYXQiOjE3MzU1NzkwNDMsImV4cCI6MTczNjE4Mzg0M30.Mf_kc8RhPqoXvK7XGHCSK21PtvlCoECGec3odLD-b78",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n        \r\n        \"firstName\": \"somaa\",\r\n        \"lastName\": \"mostafa\",\r\n        \"email\": \"ismaeel1011@yahoo.com\",\r\n        \"password\": \"ismaeel1011\"\r\n            }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/admin/employees/23",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"employees",
+										"23"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get employee by id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCR3dGFpdXhyeUt5aVE4R2tQTlNUUHB1Y3VGbENXU05nQTlpTmVNaTFhbGlkQURLc3BMdlRRYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwidXNlcm5hbWUiOiJtYXJpYW1AZ21haWwuY29tIiwic3ViIjoibWFyaWFtQGdtYWlsLmNvbSIsImlhdCI6MTczNTU3Mzg5MywiZXhwIjoxNzM2MTc4NjkzfQ.ez08oD8AljMJ1LxKKN7JwfxA6NnqhLeA45AojwRsuvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/admin/employees/31",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"employees",
+										"31"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete employee",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCR3dGFpdXhyeUt5aVE4R2tQTlNUUHB1Y3VGbENXU05nQTlpTmVNaTFhbGlkQURLc3BMdlRRYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwidXNlcm5hbWUiOiJtYXJpYW1AZ21haWwuY29tIiwic3ViIjoibWFyaWFtQGdtYWlsLmNvbSIsImlhdCI6MTczNTU3Mzg5MywiZXhwIjoxNzM2MTc4NjkzfQ.ez08oD8AljMJ1LxKKN7JwfxA6NnqhLeA45AojwRsuvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/admin/employees/30",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"employees",
+										"30"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "search employee by name",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCR3dGFpdXhyeUt5aVE4R2tQTlNUUHB1Y3VGbENXU05nQTlpTmVNaTFhbGlkQURLc3BMdlRRYSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwidXNlcm5hbWUiOiJtYXJpYW1AZ21haWwuY29tIiwic3ViIjoibWFyaWFtQGdtYWlsLmNvbSIsImlhdCI6MTczNTU3Mzg5MywiZXhwIjoxNzM2MTc4NjkzfQ.ez08oD8AljMJ1LxKKN7JwfxA6NnqhLeA45AojwRsuvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/admin/employees/search/ganna",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"employees",
+										"search",
+										"ganna"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"somaa\",\r\n    \"lastName\":\"mostafa\",\r\n    \"email\":\"somaa1011@yahoo.com\",\r\n    \"password\":\"1011somaa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"hema1983@yahoo.com\",\r\n    \"password\":\"1983hema\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "Task",
+					"item": [
+						{
+							"name": "get tasks of logged employee",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCRjclN6V0dBU2p6MERWeFQ2d2cuWDIuQ1owS0dqUXR2em9PL3dLN2F1dVVnRjZ3bDBtR24xeSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJFTVBMT1lFRSJ9XSwidXNlcm5hbWUiOiJoZW1hMTk4M0B5YWhvby5jb20iLCJzdWIiOiJoZW1hMTk4M0B5YWhvby5jb20iLCJpYXQiOjE3MzU1ODA3NTAsImV4cCI6MTczNjE4NTU1MH0.weVRjbuk5p6IGMh0ajMbg70IwWIAlC6ZyEpZ8uEq3gM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/employee/tasks",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"employee",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get task by Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCRjclN6V0dBU2p6MERWeFQ2d2cuWDIuQ1owS0dqUXR2em9PL3dLN2F1dVVnRjZ3bDBtR24xeSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJFTVBMT1lFRSJ9XSwidXNlcm5hbWUiOiJoZW1hMTk4M0B5YWhvby5jb20iLCJzdWIiOiJoZW1hMTk4M0B5YWhvby5jb20iLCJpYXQiOjE3MzU1ODA3NTAsImV4cCI6MTczNjE4NTU1MH0.weVRjbuk5p6IGMh0ajMbg70IwWIAlC6ZyEpZ8uEq3gM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/employee/task/9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"employee",
+										"task",
+										"9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update status of the task",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCRjclN6V0dBU2p6MERWeFQ2d2cuWDIuQ1owS0dqUXR2em9PL3dLN2F1dVVnRjZ3bDBtR24xeSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJFTVBMT1lFRSJ9XSwidXNlcm5hbWUiOiJoZW1hMTk4M0B5YWhvby5jb20iLCJzdWIiOiJoZW1hMTk4M0B5YWhvby5jb20iLCJpYXQiOjE3MzU1ODA3NTAsImV4cCI6MTczNjE4NTU1MH0.weVRjbuk5p6IGMh0ajMbg70IwWIAlC6ZyEpZ8uEq3gM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/employee/task/9/PENDING",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"employee",
+										"task",
+										"9",
+										"PENDING"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "comment",
+					"item": [
+						{
+							"name": "create comment",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCRjclN6V0dBU2p6MERWeFQ2d2cuWDIuQ1owS0dqUXR2em9PL3dLN2F1dVVnRjZ3bDBtR24xeSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJFTVBMT1lFRSJ9XSwidXNlcm5hbWUiOiJoZW1hMTk4M0B5YWhvby5jb20iLCJzdWIiOiJoZW1hMTk4M0B5YWhvby5jb20iLCJpYXQiOjE3MzU1ODA3NTAsImV4cCI6MTczNjE4NTU1MH0.weVRjbuk5p6IGMh0ajMbg70IwWIAlC6ZyEpZ8uEq3gM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"empId\":\"25\",\r\n    \"empName\":\"hema\",\r\n    \"createdAt\":\"25/07/2024\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/employee/task/comment/9?content=xfgdfxgbfdbvcbfghfghfgh",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"employee",
+										"task",
+										"comment",
+										"9"
+									],
+									"query": [
+										{
+											"key": "content",
+											"value": "xfgdfxgbfdbvcbfghfghfgh"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get comments of a task",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCRjclN6V0dBU2p6MERWeFQ2d2cuWDIuQ1owS0dqUXR2em9PL3dLN2F1dVVnRjZ3bDBtR24xeSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJFTVBMT1lFRSJ9XSwidXNlcm5hbWUiOiJoZW1hMTk4M0B5YWhvby5jb20iLCJzdWIiOiJoZW1hMTk4M0B5YWhvby5jb20iLCJpYXQiOjE3MzU1ODA3NTAsImV4cCI6MTczNjE4NTU1MH0.weVRjbuk5p6IGMh0ajMbg70IwWIAlC6ZyEpZ8uEq3gM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/employee/comments/9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"employee",
+										"comments",
+										"9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete comment",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCRjclN6V0dBU2p6MERWeFQ2d2cuWDIuQ1owS0dqUXR2em9PL3dLN2F1dVVnRjZ3bDBtR24xeSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJFTVBMT1lFRSJ9XSwidXNlcm5hbWUiOiJoZW1hMTk4M0B5YWhvby5jb20iLCJzdWIiOiJoZW1hMTk4M0B5YWhvby5jb20iLCJpYXQiOjE3MzU1ODA3NTAsImV4cCI6MTczNjE4NTU1MH0.weVRjbuk5p6IGMh0ajMbg70IwWIAlC6ZyEpZ8uEq3gM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/employee/task/comment/12",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"employee",
+										"task",
+										"comment",
+										"12"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "employee",
+					"item": [
+						{
+							"name": "update info",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCRjclN6V0dBU2p6MERWeFQ2d2cuWDIuQ1owS0dqUXR2em9PL3dLN2F1dVVnRjZ3bDBtR24xeSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJFTVBMT1lFRSJ9XSwidXNlcm5hbWUiOiJoZW1hMTk4M0B5YWhvby5jb20iLCJzdWIiOiJoZW1hMTk4M0B5YWhvby5jb20iLCJpYXQiOjE3MzU1ODA3NTAsImV4cCI6MTczNjE4NTU1MH0.weVRjbuk5p6IGMh0ajMbg70IwWIAlC6ZyEpZ8uEq3gM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \r\n    \"firstName\": \"hema\",\r\n    \"lastName\": \"mansour\",\r\n    \"email\": \"hema1983@yahoo.com\",\r\n    \"password\": \"hema1983\"\r\n   \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/employee/employees/25",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"employee",
+										"employees",
+										"25"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get employee from token",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCRjclN6V0dBU2p6MERWeFQ2d2cuWDIuQ1owS0dqUXR2em9PL3dLN2F1dVVnRjZ3bDBtR24xeSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJFTVBMT1lFRSJ9XSwidXNlcm5hbWUiOiJoZW1hMTk4M0B5YWhvby5jb20iLCJzdWIiOiJoZW1hMTk4M0B5YWhvby5jb20iLCJpYXQiOjE3MzU1ODA3NTAsImV4cCI6MTczNjE4NTU1MH0.weVRjbuk5p6IGMh0ajMbg70IwWIAlC6ZyEpZ8uEq3gM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/employee/getEmployee",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"employee",
+										"getEmployee"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

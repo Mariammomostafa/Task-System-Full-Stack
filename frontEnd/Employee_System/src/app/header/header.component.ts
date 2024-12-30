@@ -6,15 +6,12 @@ import {NgIf} from '@angular/common';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 
-
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
     RouterLink,ReactiveFormsModule,
-    RouterLinkActive,CommonModule,NgIf ,NzLayoutModule
-  
-  ],
+    RouterLinkActive,CommonModule,NgIf ,NzLayoutModule ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -22,7 +19,7 @@ export class HeaderComponent implements OnInit {
 
   isAdminLogged!:boolean;
   isEmployeeLogged!:boolean;
-  
+  id :any =StorageService.getUserId();
    
   constructor(private router :Router) {
    

@@ -17,3 +17,11 @@
 {
     color: brown;
 }
+
+.form-control
+{
+  width: 250px;
+  align-self: center;
+  margin-left: 300px;
+}
+

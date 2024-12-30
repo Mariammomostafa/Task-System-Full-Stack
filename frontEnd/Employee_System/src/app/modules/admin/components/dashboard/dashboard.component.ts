@@ -18,7 +18,7 @@ import { StorageService } from '../../../../auth/services/storage/storage.servic
 })
 export class DashboardComponent implements OnInit{
 
-  employees:Employee []=[];
+  employees:Employee[]=[];
   search:string='';
   
   

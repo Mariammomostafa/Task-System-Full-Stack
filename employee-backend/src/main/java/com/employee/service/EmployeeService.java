@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import com.employee.Dto.CommentDto;
+import com.employee.Dto.EmployeeDto;
 import com.employee.Dto.TaskDto;
 import com.employee.model.Employee;
 
@@ -18,9 +19,10 @@ public interface EmployeeService {
 	 
 	 Employee getEmployeeById( long id);
 	 
-	 Employee updateEmployee( long id ,  Employee employee);
+	 EmployeeDto updateEmployee( long id ,  EmployeeDto employee);
 	 
-	void deleteEmployee(long id);
+	 EmployeeDto getEmpFromToken(String token);
+
 	
 	////////////////////// Tasks ////////////////////
 	 
@@ -37,6 +39,8 @@ public interface EmployeeService {
 	 CommentDto createComment(long taskId , String content,String token);
 	 
 	 List<CommentDto> getAllComments(long taskId);
+	 
+	 void deleteComment(long id);
 	
 
 }

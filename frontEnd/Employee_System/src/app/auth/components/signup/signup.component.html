@@ -1,90 +1,84 @@
-<div class="bg" style="background-color: #e4e2e2 ;">
+<div class="bg" style="background-color: #e4e2e2;">
   <div class="parent">
       <div class="child">
-          <div>
-            <h3 style=" margin-left: 80px; color : #001529">Sign Up</h3><br>
+          
+              <h3 style="margin-left: 65px; color :#001529">Sign Up</h3>
+  
+          <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
 
-          </div>
-         
 
-              <form style=" margin-left: 20px;"  [formGroup]="signupForm" >
-
+                  <nz-form-label [nzSm]="10" [nzXs]="24" nzRequired nzFor="name">User Name</nz-form-label>
+                  <nz-form-item>
+                      
+                      <nz-form-control  nzErrorTip="user name is required ...">
+                         <nz-input-group nzPrefixIcon="user">
+                            <input nz-input id="name"  placeholder="Enter Name ..." formControlName="name" type="text"/>
+                         </nz-input-group> 
+                      </nz-form-control>
+                      
+                  </nz-form-item>
+                 
+                 <!-- Email -->
+                  <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
+                  <nz-form-item>
+                     
+                      <nz-form-control   nzErrorTip="Not Valid Email ...">
+                        <input nz-input   type="email" placeholder="Enter Email ..." formControlName="email"/>
+                     </nz-form-control>
                   
-                    <mat-form-field >
-                      <mat-label >First Name :</mat-label>
-                      <input class="input" matInput type="text"  formControlName="firstName" placeholder="Enter First Name ..">
+                  </nz-form-item>
 
-                      <mat-hint style="color : red ;" *ngIf="signupForm.get('firstName')?.hasError('required') && signupForm.get('firstName')?.touched"> First Name is required</mat-hint>        
-                    </mat-form-field>
-                    
-
-                   
-                      <mat-form-field >
-                        <mat-label >Last Name :</mat-label>
-                        <input class="input" matInput type="text"  formControlName="lastName" placeholder="Enter Last Name ..">
-
-                        <mat-hint style="color : red ;" *ngIf="signupForm.get('lastName')?.hasError('required') && signupForm.get('lastName')?.touched"> Last Name is required</mat-hint>        
-                      </mat-form-field>
-                    
+                 <!-- Password -->
+                  <nz-form-label [nzSm]="10" [nzXs]="24" nzFor="password" nzRequired>Password</nz-form-label>
+                  <nz-form-item>
                         
+                      <nz-form-control   nzErrorTip="Please Input your Password ... ...">
+                              <nz-input-group [nzSuffix]="suffixTemplate" nzErrorTip="Password Is Required ...">
+                                  <input nz-input placeholder="Enter Password ..." formControlName="password" [type]="passwordVisible ? 'text' : 'password'"/>
+                              </nz-input-group>
+                      </nz-form-control>
+                  
+                  </nz-form-item>
+                      
+                          <ng-template #suffixTemplate>
+                          <span
+                              nz-icon
+                              class="ant-input-password-icon"
+                              [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+                              (click)="passwordVisible = !passwordVisible"
+                          ></span>
+                          </ng-template>
 
-                          <mat-form-field >
-                            <mat-label >Email :</mat-label>
-                            <input class="input" matInput type="email"  formControlName="email" placeholder="Enter Email ..">
-
-                            <mat-hint style="color : red ;" *ngIf="signupForm.get('email')?.hasError('required') && signupForm.get('email')?.touched"> email is required</mat-hint>
-                            <mat-hint style="color : red ;" *ngIf="signupForm.get('email')?.hasError('email') && signupForm.get('email')?.touched"> Invalid Email</mat-hint>    
+                <!-- Confirmed Password -->
+                          <nz-form-label [nzSm]="15" [nzXs]="24" nzFor="confirmedPassword" nzRequired>Confirm Password</nz-form-label>
+                          <nz-form-item>
+                                
+                              <nz-form-control nzErrorTip="Please Input your Confirm-Password ...">
+                                      <nz-input-group [nzSuffix]="suffixTemplate" nzErrorTip="Confirmed Password Is Required ...">
+                                          <input nz-input placeholder="Enter Password ..." formControlName="confirmedPassword" [type]="passwordVisible ? 'text' : 'password'"/>
+                                      </nz-input-group>
+                              </nz-form-control>
                           
-                          </mat-form-field>
-                        
+                          </nz-form-item>
                               
-              
-              
-                 
-                      <mat-form-field >
-                        <mat-label for="password">Password :</mat-label>
-                          <input formControlName="password" id="password" placeholder="Password"  matInput [type]="hide() ? 'password' : 'text'" />
-                          <mat-hint style="color : red ;" *ngIf="signupForm.get('password')?.hasError('required') && signupForm.get('password')?.touched"> Password is required</mat-hint>
+                                  <ng-template #suffixTemplate>
+                                  <span
+                                      nz-icon
+                                      class="ant-input-password-icon"
+                                      [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+                                      (click)="passwordVisible = !passwordVisible"
+                                  ></span>
+                                  </ng-template>
 
-                            <button
-                                mat-icon-button
-                                matSuffix
-                                (click)="clickEvent($event)"
-                                [attr.aria-label]="'Hide password'"
-                                [attr.aria-pressed]="hide()">
+                      
+                  <br>
+                  <button nz-button  class="login-form-button login-form-margin" [nzType]="'primary'" >Register</button>
+                  <button nz-button (click)="resetForm($event)" class="login-form-button login-form-margin" [nzType]="'primary'">Reset</button>
 
-                            <mat-icon>{{hide() ? "visibility_off" : "visibility"}}</mat-icon>
-                          </button>
-                      </mat-form-field>
-                 
-
-
-                           
-                                <mat-form-field >
-                                  <mat-label for="confirmPassword"> Confirm Password</mat-label>
-                                    <input formControlName="confirmPassword"  id="confirmPassword" placeholder="Confirm Password" matInput [type]="hide() ? 'password' : 'text'" />
-                                    <mat-hint style="color : red ;" *ngIf="signupForm.get('confirmPassword')?.hasError('required') && signupForm.get('confirmPassword')?.touched"> Password is required</mat-hint>
-
-                                      <button
-                                          mat-icon-button
-                                          matSuffix
-                                          (click)="clickEvent($event)"
-                                          [attr.aria-label]="'Hide password'"
-                                          [attr.aria-pressed]="hide()">
-
-                                      <mat-icon>{{hide() ? "visibility_off" : "visibility"}}</mat-icon>
-                                    </button>
-                              </mat-form-field>
-                        
-                           
-                  
-                            
-                  <button style="margin-left:15px;" type="submit" (click)="submit()" class="btn btn-primary" [disabled]="signupForm.invalid">Submit</button>
-                      Or <a routerLink="/login">LogIn now!</a>
-              </form>
-
+                  <br>   Or <a routerLink="/login">Login now!</a>
+          </form>
+          
       </div>
   </div>
+
 </div>
-
-

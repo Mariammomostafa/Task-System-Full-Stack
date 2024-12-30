@@ -216,8 +216,11 @@ public class AdminServiceImpl  implements AdminService{
 		.collect(Collectors.toList());
 	}
 
-	
-	
-	
+	@Override
+	public void deleteComment(long id) {
+		commentRepository.deleteById(id);
+		
+	}
 
+	
 }

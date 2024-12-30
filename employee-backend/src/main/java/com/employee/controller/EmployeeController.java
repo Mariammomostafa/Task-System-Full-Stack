@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.employee.Dto.CommentDto;
+import com.employee.Dto.EmployeeDto;
 import com.employee.Dto.TaskDto;
 import com.employee.model.Employee;
 import com.employee.service.EmployeeService;
@@ -53,16 +54,16 @@ public class EmployeeController {
 		}
 
 	@PutMapping("/employees/{id}")
-	public ResponseEntity<Employee> updateEmployee(@PathVariable long id , @RequestBody Employee employee){
+	public ResponseEntity<EmployeeDto> updateInfo(@PathVariable long id , @RequestBody EmployeeDto employee){
 			return ResponseEntity.ok(employeeService.updateEmployee(id, employee));
 	}
-
-	@DeleteMapping("/employees/{id}")
-	public  ResponseEntity<Void>  deleteEmployee(@PathVariable long id){
-                 employeeService.deleteEmployee(id);
-	         return ResponseEntity.ok(null);
-
+	
+	@GetMapping("/getEmployee")
+	public ResponseEntity<EmployeeDto> getUserFromToken(@RequestHeader("Authorization") String token){
+		System.out.println(token);
+		return ResponseEntity.ok(employeeService.getEmpFromToken(token));
 	}
+
 	
 	                     /////////////////////  Task /////////////////////
 	
@@ -124,6 +125,14 @@ public class EmployeeController {
 		
 		return ResponseEntity.ok(employeeService.getAllComments(taskId));
 		
+	}
+	
+	/********************************/
+	
+	@DeleteMapping("/task/comment/{id}")
+	public ResponseEntity<?> deleteComment(@PathVariable long id){
+		employeeService.deleteComment(id);
+	return	ResponseEntity.ok(null);
 	}
 
 

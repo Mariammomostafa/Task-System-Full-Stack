@@ -20,6 +20,7 @@ public interface AdminService {
 	
 	 EmployeeDto getEmpFromToken(String token);
 	 
+	 
 	 /* Task  */
 	 
 	  TaskDto  createTask(TaskDto taskDto);
@@ -39,6 +40,8 @@ public interface AdminService {
 	 CommentDto createComment(long taskId , String content,String token);
 	 
 	 List<CommentDto> getAllComments(long taskId);
-
+	 
+	 void deleteComment(long id);
+	 
 
 }

@@ -1,73 +1,87 @@
 import { Component, OnInit ,signal} from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {  FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth/auth.service';
-import {MatSnackBar} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { WelcomeComponent } from "../../../welcome/welcome.component";
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
 import { RouterLink, RouterLinkActive} from '@angular/router';
+import {NzMessageService} from 'ng-zorro-antd/message';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule ,MatButtonModule,MatInputModule,
-    MatIconModule, MatFormFieldModule  , RouterLink],
+  imports: [CommonModule, ReactiveFormsModule ,NzFormModule
+    ,NzButtonModule,NzInputModule,NzIconModule,
+     RouterLink],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
 export class SignupComponent implements OnInit{
-  showPassword:boolean =false;
+  passwordVisible=true;
 
-  name:string ="";
+  constructor(private fb :NonNullableFormBuilder
+    , private router:Router,private message :NzMessageService
+    ,private authService:AuthService
+  ){}
 
-  hide = signal(true);
-  clickEvent(event: MouseEvent) {
-    this.hide.set(!this.hide());
-    event.stopPropagation();
+  validateForm!:FormGroup;
+
+  ngOnInit(): void {
+   this.validateForm =this.fb.group({
+    email :[null , [Validators.required , Validators.email]],
+    password:[null , [Validators.required]],
+    confirmedPassword:[null , [Validators.required]],
+    name: this.fb.control('', [Validators.required])
+   })
   }
 
-signupForm :FormGroup =new FormGroup({
 
-  firstName: new FormControl(null ,[Validators.required , Validators.minLength(3) , Validators.maxLength(15)]),
-  lastName: new FormControl(null ,[Validators.required , Validators.minLength(3) , Validators.maxLength(15)]),
-  email: new FormControl(null ,[Validators.required , Validators.email]),
-  password: new FormControl(null , [Validators.required ]),
-  confirmPassword: new FormControl(null , [Validators.required ]),
-  
-});
 
-constructor(private authService:AuthService ,
-  private snackbar:MatSnackBar, private route:Router){}
+  submitForm(){
 
-  ngOnInit(): void {}
 
-    ShowPassword(){
-    this.showPassword=! this.showPassword;
-    this.name=this.signupForm.get('firstName')?.value;
-  }
-
-  submit(){
-
-    const password=this.signupForm.get('password')?.value;
-    const confirmPassword=this.signupForm.get('confirmPassword')?.value;
+    const password=this.validateForm.get('password')?.value;
+    const confirmPassword=this.validateForm.get('confirmedPassword')?.value;
     if(password != confirmPassword){
-      this.snackbar.open("Password must be matches ..." , "Close" ,{duration:5000});
-      return;
-    }
-    this.authService.signup(this.signupForm.value).subscribe((res)=>{
-      console.log(res);
-      if(res.id != null){
-        this.snackbar.open("Sign Up Successfully ..." , "Close" ,{duration:5000});
-        this.route.navigate(["/login"]);
-      }else{
-        this.snackbar.open(" Something went wrong , Sign Up Failed ..." , "Close" ,{duration:5000});
 
-      }
-    })
-  } 
+      this.message.success('two passwords not match ..' , {nzDuration:5000})
+    
+    }else{
+      
+      if (this.validateForm.valid) {
+
+     
+        this.authService.signup(this.validateForm.value).subscribe((res)=>{
+          console.log(this.validateForm.value)
+          console.log(res)
+          this.message.success('Signup Successfull ..' , {nzDuration:5000})
+          this.router.navigateByUrl("/login")
+
+        },(error :any) =>{
+          this.message.error('User already Exists ..', {nzDuration:5000})
+        })
+       
+      
+        } else {
+          Object.values(this.validateForm.controls).forEach(control => {
+            if (control.invalid) {
+              control.markAsDirty();
+              control.updateValueAndValidity({ onlySelf: true });
+            }
+          });
+        }
+  }
+
+}
+
+
+  resetForm(e: MouseEvent): void {
+    e.preventDefault();
+    this.validateForm.reset();
+  }
 
 
 }
